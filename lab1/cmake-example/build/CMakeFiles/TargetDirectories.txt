@@ -1,0 +1,6 @@
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/cmake-example/build/CMakeFiles/SimpleMain.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/cmake-example/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/cmake-example/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/cmake-example/build/testlib/CMakeFiles/TestLib.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/cmake-example/build/testlib/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/cmake-example/build/testlib/CMakeFiles/rebuild_cache.dir
