@@ -37,9 +37,9 @@ set (CMAKE_CXX_STANDARD 11)
 # The three standard build types are Release, Debug, and RelWithDebInfo.
 # If set here, it forces that build type.
 #
-# set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE Release)
 # set build type to DEBUG
-# set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Debug)
 # or to get an optimized build w/ debug symbols
 # set(CMAKE_BUILD_TYPE RelWithDebInfo)
 

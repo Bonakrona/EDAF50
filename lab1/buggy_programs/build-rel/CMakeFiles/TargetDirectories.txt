@@ -1,0 +1,9 @@
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/leak.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/bounds.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/bounds-heap.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/ub.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/dangling.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/sum.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/sum_alt.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Anna-Kristina.Voss/Documents/05_CCC/2025-VT_C++Programmering/EDAF50/lab1/buggy_programs/build-rel/CMakeFiles/rebuild_cache.dir

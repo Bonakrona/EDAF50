@@ -21,17 +21,18 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS =  ltest test_list hello
+PROGS =  ltest encode decode hello
 
 all: $(PROGS)
 
 test: test_coding
-	./test_coding
+	./test_coding./
 
 # Targets rely on implicit rules for compiling and linking
 ltest: ltest.o list.o
-test_coding: test_coding.o coding.o
-print_argv: print_argv.o
+encode: encode.o coding.o
+decode: decode.o coding.o
+# print_argv: print_argv.o
 hello: hello.o
 
 # Phony targets
