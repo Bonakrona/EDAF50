@@ -16,25 +16,22 @@ using namespace std;
 
 int main()
 {
-    string filename;
-    
-    cout << "Enter filename: ";
-    cin >> filename;
+    string filename = "/usr/share/dict/words";
 
-    ifstream infile(filename, ios::binary);
+    ifstream infile(filename);
     if (!infile.is_open()) {
         cerr << "Error opening the file!" << endl;
         return 1;
     }
 
-    ofstream outfile("words.txt", ios::binary);
+    ofstream outfile("words.txt");
     if (!outfile.is_open()) {
         cerr << "Error opening the output file!" << endl;
         return 1;
     }
 
     string s;
-    while (getline(infile, s)) {
+    while(getline(infile, s)) {
         outfile << wordToTrigram(s) << endl;
     }
 
