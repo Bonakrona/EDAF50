@@ -18,7 +18,7 @@ Dictionary::Dictionary()
 {
 	std::ifstream infile("words.txt");
 	if(!infile) {
-		std::cerr << "Error: coild not open wrods.txt" << std::endl;
+		std::cerr << "Error: could not open wrods.txt" << std::endl;
 		return;
 	}
 	string s;
