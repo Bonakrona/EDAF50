@@ -42,13 +42,33 @@ bool Dictionary::contains(const string &word) const
 
 void Dictionary::add_trigram_suggestions(vector<string> &suggestions, const vector<std::string> &trigrams, int wordlen) const
 {
-	const vector<Word> &candidates = wordsWithTrigrams[wordlen];
 
-	for(const Word &w : candidates) {
-		if(w.get_matches(trigrams) > 0) {
-			suggestions.push_back(w.get_word());
+	vector<int> candidate_lengths = {wordlen};
+	if(wordlen > 1) {
+		candidate_lengths.push_back(wordlen - 1);
+	}
+	if(wordlen + 1 < maxlen) {
+		candidate_lengths.push_back(wordlen + 1);
+	}
+
+	for (int len : candidate_lengths) {
+		for (const Word &w: wordsWithTrigrams[len]) {
+			unsigned int matches = w.get_matches(trigrams);
+
+			if(matches >= trigrams.size() / 2) {
+				suggestions.push_back(w.get_word());
+			}
 		}
 	}
+
+
+	// const vector<Word> &candidates = wordsWithTrigrams[wordlen];
+
+	// for(const Word &w : candidates) {
+	// 	if(w.get_matches(trigrams) > 0) {
+	// 		suggestions.push_back(w.get_word());
+	// 	}
+	// }
 }
 
 vector<string> Dictionary::get_suggestions(const string &word) const
@@ -56,7 +76,7 @@ vector<string> Dictionary::get_suggestions(const string &word) const
 	vector<string> suggestions;
 	vector<string> trigrams = wordToTrigram(word);
 
-	if(word.length() < maxlen) {
+	if(word.length() < maxlen ) {
 		add_trigram_suggestions(suggestions, trigrams, word.length());
 	}
 	return suggestions;
