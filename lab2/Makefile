@@ -13,7 +13,7 @@ LDFLAGS =   -g
 PROG = trigram_program
 
 # SRCS = IO.cc trigram.cc
-SRCS = spell.cc dictionary.cc trigram.cc
+SRCS = spell.cc dictionary.cc trigram.cc word.cc
 OBJS = $(SRCS:.cc=.o)
 
 all: $(PROG)

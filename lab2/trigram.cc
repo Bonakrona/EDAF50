@@ -7,7 +7,7 @@
 using std::string;
 using std::vector;
 
-string wordToTrigram(const string &word)
+vector<string> wordToTrigram(const string &word)
 {
     vector<string> trigrams;
 
@@ -20,7 +20,7 @@ string wordToTrigram(const string &word)
 
     if (nbrTrigrams < 1)
     {
-        return "";
+        return trigrams;
     }
 
     for (int i = 0; i < nbrTrigrams; ++i)
@@ -30,12 +30,15 @@ string wordToTrigram(const string &word)
 
     std::sort(trigrams.begin(), trigrams.end());
 
-    string res = lowerWord + " " + std::to_string(nbrTrigrams);
+    // string res_string;
+    // vector<string> res_vector;
 
-    for (const auto &trigram : trigrams)
-    {
-        res += " " + trigram;
-    }
+    // for (const auto &trigram : trigrams)
+    // {
+    //     res_string = lowerWord + " " + std::to_string(nbrTrigrams);
+    //     +" " + trigram;
+    //     res_vector.push_back(res_string);
+    // }
 
-    return res;
+    return trigrams;
 }

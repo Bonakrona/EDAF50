@@ -2,7 +2,8 @@
 #define TRIGRAM_H
 
 #include <string>
+#include <vector>
 
-std::string wordToTrigram(const std::string& word);
+std::vector<std::string> wordToTrigram(const std::string& word);
 
 #endif
