@@ -13,11 +13,12 @@ public:
 	bool contains(const std::string &word) const;
 	std::vector<std::string> get_suggestions(const std::string &word) const;
 	void add_trigram_suggestions(std::vector<std::string> &suggestions, const std::vector<std::string> &trigrams, int word_len) const;
+	static constexpr int maxlen{25};
 
 private:
 	std::unordered_set<std::string> words;
-	static constexpr int maxlen{25};
 	std::vector<Word> wordsWithTrigrams[maxlen];
+	std::vector<std::string> rank_suggestions(const std::vector<std::string> &words, const std::string &misspelled_word);
 };
 
 #endif
