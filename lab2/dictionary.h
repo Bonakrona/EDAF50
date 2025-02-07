@@ -15,10 +15,12 @@ public:
 	void add_trigram_suggestions(std::vector<std::string> &suggestions, const std::vector<std::string> &trigrams, int word_len) const;
 	static constexpr int maxlen{25};
 
+	void rank_suggestions(std::vector<std::string> &suggestions, const std::string &misspelled_word) const;
+	void trim_suggestions(std::vector<std::string> &suggestions) const;
+
 private:
 	std::unordered_set<std::string> words;
 	std::vector<Word> wordsWithTrigrams[maxlen];
-	std::vector<std::string> rank_suggestions(const std::vector<std::string> &words, const std::string &misspelled_word);
 };
 
 #endif

@@ -27,7 +27,7 @@ Dictionary::Dictionary()
 		string word = s.substr(0, s.find_first_of(" "));
 		vector<string> trigrams = wordToTrigram(word);
 
-		if (word.length() < maxlen)
+		if (word.length() <= maxlen)
 		{
 			wordsWithTrigrams[word.length()].push_back(Word(word, trigrams));
 		}
@@ -76,6 +76,32 @@ void Dictionary::add_trigram_suggestions(vector<string> &suggestions, const vect
 	// }
 }
 
+void Dictionary::rank_suggestions(vector<string> &suggestions, const string &misspelled_word) const
+{
+    vector<std::pair<int, string>> distances;
+    for (const string &candidate: suggestions)
+    {
+        int distance = edit_distance(candidate, misspelled_word);
+        distances.push_back({distance, candidate});
+    }
+
+    std::sort(distances.begin(), distances.end());
+
+	suggestions.clear();
+    for (const auto &pair : distances)
+    {
+        suggestions.push_back(pair.second);
+    }
+}
+
+void Dictionary::trim_suggestions(std::vector<std::string> &suggestions) const
+{	
+	if(suggestions.size() < 5) {
+		return;
+	}
+	suggestions.resize(5);
+}
+
 vector<string> Dictionary::get_suggestions(const string &word) const
 {
 	vector<string> suggestions;
@@ -85,27 +111,7 @@ vector<string> Dictionary::get_suggestions(const string &word) const
 	{
 		add_trigram_suggestions(suggestions, trigrams, word.length());
 	}
-	return suggestions;
-	
-	// return rank_suggestions(suggestions, word);
-	// rank suggestions ska inte skapa en ny vektor som den retyrnernar, den ska istället ändra i den befintliga vektorn
-}
-
-vector<string> Dictionary::rank_suggestions(const vector<string> &words, const string &misspelled_word)
-{
-    vector<std::pair<int, string>> distances;
-    for (const string &candidate : words)
-    {
-        int distance = edit_distance(candidate, misspelled_word);
-        distances.push_back({distance, candidate});
-    }
-
-    std::sort(distances.begin(), distances.end());
-
-    vector<string> sorted;
-    for (const auto &pair : distances)
-    {
-        sorted.push_back(pair.second);
-    }
-    return sorted;
+	rank_suggestions(suggestions, word);
+	trim_suggestions(suggestions);
+	return suggestions;	
 }
