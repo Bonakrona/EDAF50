@@ -33,3 +33,11 @@ int main()
 
     return 0;
 }
+
+
+// std::istream& operator>>(std::istream &infile,std::string & out)
+// {
+//     std::string str;
+//     std::getline(infile,str);
+//     return infile;
+// }
