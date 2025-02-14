@@ -1,4 +1,6 @@
 #include <ctime>  // time and localtime
+#include <iostream>
+#include <iomanip> // for setw and setfill
 #include "date.h"
 
 int Date::daysPerMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -11,20 +13,35 @@ Date::Date() {
 	day = locTime->tm_mday;
 }
 
-Date::Date(int y, int m, int d) {}
+Date::Date(int y, int m, int d) {
+	year = y;
+	month = m;
+	day = d;
+}
 
 int Date::getYear() const {
-	return 0;
+	return year;
 }
 
 int Date::getMonth() const {
-	return 0;
+	return month;
 }
 
 int Date::getDay() const {
-	return 0;
+	return day;
 }
 
 void Date::next() {
+	if (day == daysPerMonth[month-1])
+	{
+		if(month == 12) year++;
+		month++;
+		day = 1;
+	}
+	else
+	{
+		day++;
+	}
+	return;
 }
 
