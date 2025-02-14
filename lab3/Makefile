@@ -12,15 +12,15 @@ LDFLAGS = -g
 
 PROG = A3_program
 
-SRCS = html_remove_tags.cc
+SRCS = date.cc date_test.cc
 OBJS = $(SRCS:.cc=.o)
 
-GTEST_DIR = /usr/src/gtest
-GTEST_LIBS = -lgtest -lgtest_main -pthread
-GTEST_INCLUDE = -I/usr/include/gtest
+# GTEST_DIR = /usr/src/gtest
+# GTEST_LIBS = -lgtest -lgtest_main -pthread
+# GTEST_INCLUDE = -I/usr/include/gtest
 
-TEST_PROG = test_html_tags
-TEST_SRCS = test_html_tags.cc
+TEST_PROG = date_test
+TEST_SRCS = date_test.cc
 TEST_OBJS = $(TEST_SRCS:.cc=.o)
 
 all: $(PROG) $(TEST_PROG)

@@ -1,8 +1,13 @@
 #ifndef DATE_H
 #define DATE_H
 
+#include <ostream>
+#include <istream>
+
 class Date {
-public:
+	public:
+	friend std::ostream& operator<<(std::ostream& os, const Date& dt);
+	friend std::istream& operator>>(std::istream& is, Date& dt);
 	Date();                    // today's date
 	Date(int y, int m, int d); // yyyy-mm-dd
 	int getYear() const;       // get the year
