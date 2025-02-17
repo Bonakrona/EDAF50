@@ -52,3 +52,40 @@ void Date::next() {
 	return;
 }
 
+std::ostream& operator<<(std::ostream& os, const Date& dt)
+{
+	os << std::setw(4) << std::setfill('0') << dt.year << '-'
+	<< std::setw(2) << std::setfill('0') << dt.month << '-'
+	<< std::setw(2) << std::setfill('0') << dt.day;
+ 	return os;
+}
+
+std::istream& operator>>(std::istream& is, Date& dt)
+{
+	int y, m, d;
+    char char1, char2; // To store the '-' characters
+    if(is >> y >> char1 >> m >> char2 >> d)
+	{
+		if (char1 != '-' || char2 != '-') {
+            is.setstate(std::ios::failbit);
+		}
+		else if (m < 1 || m > 12 || d < 1 || d > dt.daysPerMonth[m-1])
+		{
+			// the date has right format but makes no sense
+			is.setstate(std::ios::failbit);
+		}
+		else
+		{
+			dt.day = d;
+			dt.month = m;
+			dt.year = y;
+		}
+	}
+	else
+	{
+		is.setstate(std::ios::failbit);
+	}
+    
+    return is;
+}
+
