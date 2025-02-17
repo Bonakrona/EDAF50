@@ -26,8 +26,14 @@ int Date::getDay() const {
 }
 
 void Date::next() {
-	if(daysPerMonth[month] == day) {
+	if(daysPerMonth[month - 1] == day) {
 		day = 1;
+		if(month == 12) {
+			month= 1;
+			year++;
+		} else {
+			month++;
+		}
 	} else {
 		day++;
 	}

@@ -15,27 +15,24 @@ PROG = A3_program
 SRCS = date.cc date_test.cc
 OBJS = $(SRCS:.cc=.o)
 
-# GTEST_DIR = /usr/src/gtest
-# GTEST_LIBS = -lgtest -lgtest_main -pthread
-# GTEST_INCLUDE = -I/usr/include/gtest
-
 TEST_PROG = date_test
 TEST_SRCS = date_test.cc
 TEST_OBJS = $(TEST_SRCS:.cc=.o)
 
-all: $(PROG) $(TEST_PROG)
+all: $(TEST_PROG)
 
 $(PROG): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-$(TEST_PROG): $(TEST_OBJS) $(OBJS)
-	$(CXX) $(LDFLAGS) $(GTEST_LIBS) -o $@ $^
+
+date_test: date_test.o date.o
+	$(CXX) $(LDFLAGS) -o $@ $^
 
 %.o: %.cc
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 test: $(TEST_PROG)
-	./$(TEST_PROG)
+	./date_test
 
 .PHONY: all clean distclean
 
