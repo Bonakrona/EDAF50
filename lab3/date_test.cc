@@ -83,20 +83,24 @@ int main() {
 	// printing dates more than a month ahead
 	cout << "--- Today and more than a month ahead:" << endl;
 	Date d1;
+	cout << "Output: " << d1 << endl;
 	//print(d1);
-	cout << endl;
+	//cout << endl;
 	for (int i = 1; i <= 35 ; ++i) {
 		d1.next();
+		cout << "Output: " << d1 << endl;
 		//print(d1);
-		cout << endl;
+		//cout << endl;
 	}
 	
 	// Check so 'next' functions correctly from one year to the next
 	cout << "--- New Year's Eve and the next day:" << endl;
 	Date d2(2013, 12, 31);
+	cout << "Output: " << d2 << endl;
 	//print(d2);
-	cout << endl;
+	//cout << endl;
 	d2.next();
+	cout << "Output: " << d2 << endl;
 	//print(d2);
-	cout << endl;
+	//cout << endl;
 }
