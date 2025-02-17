@@ -11,7 +11,7 @@ Date::Date() {
 	day = locTime->tm_mday;
 }
 
-Date::Date(int y, int m, int d) {}
+Date::Date(int y, int m, int d) : year(y), month(m), day(d) {}
 
 int Date::getYear() const {
 	return year;
