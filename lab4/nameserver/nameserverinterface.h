@@ -6,6 +6,7 @@
 #define NAME_SERVER_INTERFACE_H
 
 #include <string>
+#include <vector>
 
 using HostName = std::string;
 using IPAddress = unsigned int;
