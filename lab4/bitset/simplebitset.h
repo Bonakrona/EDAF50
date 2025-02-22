@@ -16,7 +16,7 @@ public:
 	bool get(std::size_t pos) const;
 	void set(std::size_t pos, bool b);
 private:
-	using BitStorage = unsigned long;
+	using BitStorage = unsigned long; // has 32 bits
 	BitStorage bits;
 	static const std::size_t
 	    BPW = std::numeric_limits<BitStorage>::digits;

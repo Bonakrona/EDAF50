@@ -1,6 +1,6 @@
 #include "simplebitset.h"
 
-SimpleBitset::SimpleBitset() : bits(0) {}
+SimpleBitset::SimpleBitset() : bits(0) {} //initializes the 32 bit with zeros only becasue then it is represneting 0 in bits
 
 size_t SimpleBitset::size() const {
 	return BPW;

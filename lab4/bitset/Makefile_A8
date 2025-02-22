@@ -1,0 +1,34 @@
+# Compiler and flags
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall -g
+
+# Source files
+SRCS = bitset.cc bitreference.cc bitsettest1.cc
+
+# Object files (corresponding .o files for the source files)
+OBJS = $(SRCS:.cc=.o)
+
+# Executable name
+TARGET = bitsettest1
+
+# Default target
+all: $(TARGET)
+
+# How to build the target (executable)
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+# How to build object files from source files
+%.o: %.cc %.h
+	$(CXX) $(CXXFLAGS) -c $<
+
+# Clean up object files and executable
+clean:
+	rm -f $(OBJS) $(TARGET)
+
+# Run the program (can be customized as needed)
+run: $(TARGET)
+	./$(TARGET)
+
+# Phony targets
+.PHONY: all clean run
