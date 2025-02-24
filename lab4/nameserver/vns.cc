@@ -1,8 +1,5 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
 #include "vns.h"
+#include <algorithm>
 
 using namespace std;
 using std::string;
@@ -13,7 +10,7 @@ void vns::insert(const HostName& name, const IPAddress& address) {
 }
 
 bool vns::remove(const HostName& name) {
-    auto it = find_if(pairs.begin(), pairs.end(), [&name](const pair<HostName, IPAddress>& p) {
+    auto it = std::find_if(pairs.begin(), pairs.end(), [&name](const pair<HostName, IPAddress>& p) {
         return p.first == name;
     });
     if (it != pairs.end()) {
@@ -24,7 +21,7 @@ bool vns::remove(const HostName& name) {
 }
 
 IPAddress vns::lookup(const HostName& name) const {
-    auto it = find_if(pairs.begin(), pairs.end(), [&name](const pair<HostName, IPAddress>& p) {
+    auto it = std::find_if(pairs.begin(), pairs.end(), [&name](const pair<HostName, IPAddress>& p) {
         return p.first == name;
     });
     if (it != pairs.end()) {

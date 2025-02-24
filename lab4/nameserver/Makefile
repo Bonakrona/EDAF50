@@ -3,9 +3,8 @@ CC  = $(CXX)
 
 DEPFLAGS = -MT $@ -MMD -MP -MF $*.d
 
-CPPFLAGS = -std=c++11 -I.
+CPPFLAGS = -std=c++14 -I.
 CXXFLAGS = -O2 -Wall -Wextra -pedantic-errors -Wold-style-cast 
-CXXFLAGS += -std=c++11 
 CXXFLAGS += -g
 CXXFLAGS += $(DEPFLAGS)
 LDFLAGS = -g 
@@ -19,7 +18,19 @@ TEST_PROG = nstest
 TEST_SRCS = nstest.cc
 TEST_OBJS = $(TEST_SRCS:.cc=.o)
 
-all: $(TEST_PROG)
+NSTIME_PROG = nstime
+NSTIME_SRCS = nstime.cc
+NSTIME_OBJS = $(NSTIME_SRCS:.cc=.o)
+
+$(TEST_PROG): $(TEST_OBJS) vns.o mns.o umns.o hns.o
+	$(CXX) $(LDFLAGS) -o $@ $^
+
+$(NSTIME_PROG): $(NSTIME_OBJS) vns.o mns.o umns.o hns.o
+	$(CXX) $(LDFLAGS) -o $@ $^
+
+
+
+all: $(TEST_PROG) $(NSTIME_PROG)
 
 $(PROG): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^

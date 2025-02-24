@@ -1,30 +1,27 @@
+#ifndef HNS_H
+#define HNS_H
+
 #include "nameserverinterface.h"
 #include <vector>
-#include <string>
+#include <list>
+#include <functional>
 
 using namespace std;
-using std::string;
+using std::list;
 using std::vector;
 
 class hns : public NameServerInterface
 {
 public:
-    void insert(const HostName&, const IPAddress&) = 0;
-    bool remove(const HostName&) = 0;
-    IPAddress lookup(const HostName&) const = 0;
+    hns(size_t tableSize);
+    void insert(const HostName &name, const IPAddress &address) override;
+    bool remove(const HostName &name) override;
+    IPAddress lookup(const HostName &name) const override;
+
 private:
-    vector<std::pair<HostName, IPAddress>> pairs;
+    vector<list<std::pair<HostName, IPAddress>>> table;
+    size_t size;
+    std::hash<HostName> hashFunction;
 };
 
-/*
-Implement a class
-HNS (hash name server) that uses a hash table — a vector of vectors — to store the
-name/address pairs.
-The hash table implementation is open for experimentation: you must select an
-appropriate size for the hash table (given as an argument to the constructor) and a
-suitable hash function.18,19 You should be able to obtain approximately the same
-search times as for the unordered map implementation
-
-use:
-std::hash<string>
-*/
+#endif

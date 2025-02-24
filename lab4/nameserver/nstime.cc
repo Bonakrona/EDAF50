@@ -80,19 +80,19 @@ int main() {
 	/*
 	 * The vector implementation.
 	 */
-	VNS vns;
+	vns vns;
 	
 	/*
 	 * The map implementations.
 	 */
-	MNS mns;
-	UMNS umns;
+	mns mns;
+	umns umns;
 	
 	/*
 	 * The hash table implementation. The size of the hash table is
 	 * a parameter to the constructor.
 	 */
-	HNS hns(17441);
+	hns hns(17441);
 	
 	/*
 	 * data is a vector containing the name/address pairs. Used by the

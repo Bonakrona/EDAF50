@@ -1,17 +1,21 @@
+#ifndef UMNS_H
+#define UMNS_H
+
 #include "nameserverinterface.h"
 #include <unordered_map>
-#include <string>
 
 using namespace std;
-using std::string;
 using std::unordered_map;
 
 class umns : public NameServerInterface
 {
 public:
-    void insert(const HostName&, const IPAddress&) = 0;
-    bool remove(const HostName&) = 0;
-    IPAddress lookup(const HostName&) const = 0;
+    void insert(const HostName &name, const IPAddress &address) override;
+    bool remove(const HostName &name) override;
+    IPAddress lookup(const HostName &name) const override;
+
 private:
     unordered_map<HostName, IPAddress> pairs;
 };
+
+#endif

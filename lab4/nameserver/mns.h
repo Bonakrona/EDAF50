@@ -1,17 +1,22 @@
+#ifndef MNS_H
+#define MNS_H
+
 #include "nameserverinterface.h"
-#include <string>
 #include <map>
 
 using namespace std;
-using std::string;
 using std::map;
+using std::string;
 
 class mns : public NameServerInterface
 {
 public:
-    void insert(const HostName&, const IPAddress&) = 0;
-    bool remove(const HostName&) = 0;
-    IPAddress lookup(const HostName&) const = 0;
+    void insert(const HostName &name, const IPAddress &address) override;
+    bool remove(const HostName &name) override;
+    IPAddress lookup(const HostName &name) const override;
+
 private:
     map<HostName, IPAddress> pairs;
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef VNS_H
+#define VNS_H
+
 #include "nameserverinterface.h"
 #include <vector>
 #include <string>
@@ -9,9 +12,12 @@ using std::vector;
 class vns : public NameServerInterface
 {
 public:
-    void insert(const HostName&, const IPAddress&) = 0;
-    bool remove(const HostName&) = 0;
-    IPAddress lookup(const HostName&) const = 0;
+void insert(const HostName& name, const IPAddress& address) override;
+bool remove(const HostName& name) override;
+IPAddress lookup(const HostName& name) const override;
+
 private:
     vector<std::pair<HostName, IPAddress>> pairs;
 };
+
+#endif
