@@ -3,6 +3,7 @@
  * Postfix ++, ==, and -> are not implemented.
  */
 
+ /*
 #ifndef BITSET_ITERATOR_H
 #define BITSET_ITERATOR_H
 
@@ -20,6 +21,7 @@ public:
 	}
 
 	BitsetIterator& operator++() {
+		// ++ref.pos;
 		return *this;
 	}
 
@@ -38,3 +40,27 @@ private:
 
 #endif
 
+*/
+
+#ifndef BITSET_ITERATOR_H
+#define BITSET_ITERATOR_H
+
+#include "bitreference.h"
+#include <iterator>
+
+class BitsetIterator : public std::iterator<std::forward_iterator_tag, bool> {
+public:
+    BitsetIterator(Bitset::BitStorage* pb, std::size_t p);
+
+    BitsetIterator(const BitsetIterator&) = default;
+
+    bool operator!=(const BitsetIterator& bsi) const;
+    BitsetIterator& operator++();
+    BitReference operator*();
+    BitsetIterator& operator=(const BitsetIterator& rhs);
+
+private:
+    BitReference ref;
+};
+
+#endif
