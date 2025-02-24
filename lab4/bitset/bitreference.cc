@@ -30,8 +30,10 @@ BitReference& BitReference::operator=(const BitReference& rhs) {
 	} else {
 		*p_bits &= ~ (1L << pos);
 	}
-
+	
 	return *this;
+
+	//return *this=b;
 }
 
 BitReference::operator bool() const {

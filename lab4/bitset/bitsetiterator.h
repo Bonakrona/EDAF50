@@ -16,10 +16,18 @@ public:
     BitsetIterator(const BitsetIterator&) =default;
 
 	bool operator!=(const BitsetIterator& bsi) const {
-		return true;
+		// ref of these two iterators are not pointing
+		// to the same bit
+		if (ref.p_bits != bsi.ref.p_bits || ref.pos != bsi.ref.pos){
+			return true;
+		} else {
+			return false;
+		}
+		// return !(*this == bsi);
 	}
 
 	BitsetIterator& operator++() {
+		ref.pos++;
 		return *this;
 	}
 

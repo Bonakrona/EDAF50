@@ -3,13 +3,13 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall -g
 
 # Source files
-SRCS = bitset.cc bitreference.cc bitsettest1.cc
+SRCS = bitset.cc bitreference.cc bitsettest2.cc
 
 # Object files (corresponding .o files for the source files)
 OBJS = $(SRCS:.cc=.o)
 
 # Executable name
-TARGET = bitsettest1
+TARGET = bitsettest2
 
 # Default target
 all: $(TARGET)
