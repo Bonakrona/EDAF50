@@ -28,8 +28,6 @@ $(TEST_PROG): $(TEST_OBJS) vns.o mns.o umns.o hns.o
 $(NSTIME_PROG): $(NSTIME_OBJS) vns.o mns.o umns.o hns.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-
-
 all: $(TEST_PROG) $(NSTIME_PROG)
 
 $(PROG): $(OBJS)
